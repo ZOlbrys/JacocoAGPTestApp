@@ -14,4 +14,13 @@ class ExampleUnitTest {
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
     }
+
+    @Test
+    fun `jacoco test coverage`() {
+        val testClass = TestClass()
+
+        val result = testClass.doSomethingElse()
+
+        assertEquals(1337, result)
+    }
 }

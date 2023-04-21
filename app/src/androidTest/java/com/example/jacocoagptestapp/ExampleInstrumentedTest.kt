@@ -21,4 +21,13 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.jacocoagptestapp", appContext.packageName)
     }
+
+    @Test
+    fun testJacocoCoverage() {
+        val testClass = TestClass()
+
+        val result = testClass.doSomething()
+
+        assertEquals(42, result)
+    }
 }
