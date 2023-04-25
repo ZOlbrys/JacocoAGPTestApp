@@ -37,6 +37,10 @@ android {
     }
 }
 
+jacoco {
+    toolVersion = '0.8.8'
+}
+
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
     reports {
         xml.required.set(true)
