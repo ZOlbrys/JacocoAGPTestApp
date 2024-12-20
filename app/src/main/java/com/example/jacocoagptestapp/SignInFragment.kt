@@ -1,6 +1,6 @@
 package com.example.jacocoagptestapp
 
-class RegisterFragment {
+class SignInFragment {
     fun doSomething(): Int {
         return 42
     }
