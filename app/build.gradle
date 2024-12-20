@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.example.jacocoagptestapp'
-    compileSdk 33
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.example.jacocoagptestapp"
         minSdk 26
-        targetSdk 33
+        targetSdk 35
         versionCode 1
         versionName "1.0"
 
@@ -34,7 +34,7 @@ android {
 }
 
 jacoco {
-    toolVersion = '0.8.11'
+    toolVersion = '0.8.12'
 }
 
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
@@ -45,25 +45,25 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
 
     sourceDirectories.setFrom("${project.projectDir}/src/main/java")
     classDirectories.setFrom(
-            fileTree(dir: "${buildDir}/intermediates/javac/debug") +
-            fileTree(dir: "${buildDir}/tmp/kotlin-classes/debug")
+            fileTree(dir: "${layout.buildDirectory.get()}/intermediates/javac/debug") +
+            fileTree(dir: "${layout.buildDirectory.get()}/tmp/kotlin-classes/debug")
     )
 
     executionData.setFrom(
             files([
-                    "${buildDir}/outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec",
-                    fileTree(dir: "${buildDir}/outputs/code_coverage/debugAndroidTest/connected/", includes: ["**/*.ec"])
+                    "${layout.buildDirectory.get()}/outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec",
+                    fileTree(dir: "${layout.buildDirectory.get()}/outputs/code_coverage/debugAndroidTest/connected/", includes: ["**/*.ec"])
             ])
     )
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.10.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.core:core-ktx:1.15.0'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }
