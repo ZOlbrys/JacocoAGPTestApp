@@ -24,9 +24,9 @@ class ExampleInstrumentedTest {
 
     @Test
     fun testJacocoCoverage() {
-        val testClass = TestClass()
+        val registerFragment = RegisterFragment()
 
-        val result = testClass.doSomething()
+        val result = registerFragment.doSomething()
 
         assertEquals(42, result)
     }
