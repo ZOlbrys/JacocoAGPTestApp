@@ -17,9 +17,9 @@ class ExampleUnitTest {
 
     @Test
     fun `jacoco test coverage`() {
-        val registerFragment = RegisterFragment()
+        val signInFragment = SignInFragment()
 
-        val result = registerFragment.doSomethingElse()
+        val result = signInFragment.doSomethingElse()
 
         assertEquals(1337, result)
     }
